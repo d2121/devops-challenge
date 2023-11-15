@@ -24,7 +24,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Run Application
+    - name: Run verification script
       run: |
-        # Commands to run your application
-        # Example: docker-compose up -d
+        chmod +x ./verification.sh
+        ./verification.sh
