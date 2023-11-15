@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS CloudFormation Template for setting up the application infrastructure.
+
+Parameters:
+  VpcId:
+    Type: String
+    Description: VPC ID where resources will be deployed.
+
+Resources:
+  # Define AWS resources like EC2 instances, DynamoDB tables, etc.
+
+Outputs:
+  # Outputs that can be used to understand the resources created.
