@@ -5,10 +5,14 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 def get_secret_string(code_name):
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('devops-challenge')
-    response = table.get_item(Key={'code_name': code_name})
-    return response.get('Item', {}).get('secret_code')
+    try:
+        dynamodb = boto3.resource('dynamodb')
+        table = dynamodb.Table('devops-challenge')
+        response = table.get_item(Key={'code_name': code_name})
+        return response.get('Item', {}).get('secret_code')
+    except:
+        return jsonify(error="NoRegionError: You must specify a region."), 500
+
 
 @app.route('/secret')
 def secret():
