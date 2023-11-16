@@ -5,7 +5,7 @@ docker-compose up --build -d
 sleep 5
 
 # Query results
-curl 127.0.0.1:5000/secret 
+curl 127.0.0.1:5000/secret | jq -r '.secret_code'
 curl 127.0.0.1:5000/health | jq '.'
 
 # Destroy 
